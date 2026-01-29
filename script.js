@@ -25,10 +25,10 @@ let db;
 document.addEventListener('DOMContentLoaded', () => {
     initDB();
     registerServiceWorker();
-    
+
     // Set initial length display
     lengthValue.textContent = lengthRange.value;
-    
+
     // Generate one on start
     setTimeout(generatePassword, 500);
 });
@@ -73,6 +73,11 @@ function generatePassword() {
 
     passwordOutput.value = password;
     saveToHistory(password);
+
+    // Haptic Feedback
+    if (navigator.vibrate) {
+        navigator.vibrate(50);
+    }
 }
 
 // Clipboard API
@@ -148,7 +153,7 @@ function loadHistory() {
 
 function clearHistory() {
     if (!db) return;
-    
+
     const transaction = db.transaction(['history'], 'readwrite');
     const objectStore = transaction.objectStore('history');
     const request = objectStore.clear();
@@ -160,7 +165,7 @@ function clearHistory() {
 
 function renderHistory(items) {
     historyList.innerHTML = '';
-    
+
     if (items.length === 0) {
         historyList.innerHTML = '<li class="empty-state">No history yet</li>';
         return;
@@ -169,10 +174,10 @@ function renderHistory(items) {
     items.forEach(item => {
         const li = document.createElement('li');
         li.className = 'history-item';
-        
+
         const span = document.createElement('span');
         span.textContent = item.password;
-        
+
         const copyBtn = document.createElement('button');
         copyBtn.className = 'copy-mini-btn';
         copyBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
