@@ -78,6 +78,12 @@ function generatePassword() {
     if (navigator.vibrate) {
         navigator.vibrate(50);
     }
+
+    // Visual Feedback (Shake)
+    const card = document.querySelector('.display-card');
+    card.classList.remove('shake-animation');
+    void card.offsetWidth; // Trigger reflow
+    card.classList.add('shake-animation');
 }
 
 // Clipboard API
