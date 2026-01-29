@@ -82,6 +82,24 @@ p {
     font-size: 0.9rem;
 }
 
+.install-btn {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.install-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
 /* Glassmorphism Card */
 .card {
     background: var(--glass-bg);

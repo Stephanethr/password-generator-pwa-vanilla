@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="background-mesh"></div>
-    
+
     <main class="container">
         <header>
             <div class="logo-container">
@@ -23,13 +25,20 @@
                 <h1>SecurePass</h1>
             </div>
             <p>Generate secure, random passwords instantly.</p>
+            <button id="installBtn" class="install-btn hidden" style="display: none;">
+                Install App
+            </button>
         </header>
 
         <section class="card display-card">
             <div class="password-display-container">
                 <input type="text" id="passwordOutput" placeholder="Your password here" readonly>
                 <button id="copyBtn" aria-label="Copy Password">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
                 </button>
             </div>
             <div id="copyFeedback" class="hidden">Copied to clipboard!</div>
@@ -84,4 +93,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
