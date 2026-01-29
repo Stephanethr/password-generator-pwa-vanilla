@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure Password Generator PWA">
+    <title>SecurePass Gen</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon.png" type="image/png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-mesh"></div>
+    
+    <main class="container">
+        <header>
+            <div class="logo-container">
+                <img src="icon.png" alt="SecurePass Logo" class="logo">
+                <h1>SecurePass</h1>
+            </div>
+            <p>Generate secure, random passwords instantly.</p>
+        </header>
+
+        <section class="card display-card">
+            <div class="password-display-container">
+                <input type="text" id="passwordOutput" placeholder="Your password here" readonly>
+                <button id="copyBtn" aria-label="Copy Password">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+            <div id="copyFeedback" class="hidden">Copied to clipboard!</div>
+        </section>
+
+        <section class="card controls-card">
+            <div class="control-group">
+                <div class="label-row">
+                    <label for="lengthRange">Length</label>
+                    <span id="lengthValue">16</span>
+                </div>
+                <input type="range" id="lengthRange" min="6" max="64" value="16">
+            </div>
+
+            <div class="options-grid">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="uppercase" checked>
+                    <span class="checkmark"></span>
+                    Uppercase (A-Z)
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="lowercase" checked>
+                    <span class="checkmark"></span>
+                    Lowercase (a-z)
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="numbers" checked>
+                    <span class="checkmark"></span>
+                    Numbers (0-9)
+                </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="symbols" checked>
+                    <span class="checkmark"></span>
+                    Symbols (!@#$)
+                </label>
+            </div>
+
+            <button id="generateBtn" class="primary-btn">Generate Password</button>
+        </section>
+
+        <section class="card history-card">
+            <div class="history-header">
+                <h2>History</h2>
+                <button id="clearHistoryBtn" class="text-btn">Clear</button>
+            </div>
+            <ul id="historyList" class="history-list">
+                <!-- History items will be injected here -->
+                <li class="empty-state">No history yet</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

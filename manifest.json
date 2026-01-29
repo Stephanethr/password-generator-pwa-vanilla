@@ -1,0 +1,15 @@
+{
+  "name": "SecurePass Gen",
+  "short_name": "SecurePass",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1e1e2e",
+  "theme_color": "#1e1e2e",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
